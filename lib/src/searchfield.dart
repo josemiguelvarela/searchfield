@@ -313,6 +313,7 @@ class _SearchFieldState<T> extends State<SearchField<T>> {
 
   @override
   void dispose() {
+    suggestionStream.sink.add(null);
     suggestionStream.close();
     _scrollController.dispose();
     if (widget.controller == null) {

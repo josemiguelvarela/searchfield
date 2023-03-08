@@ -313,9 +313,7 @@ class _SearchFieldState<T> extends State<SearchField<T>> {
 
   @override
   void dispose() {
-    if (_overlayEntry != null && _overlayEntry!.mounted) {
-      _overlayEntry?.remove();
-    }
+    Overlay.of(context)?.dispose();
     suggestionStream.close();
     _scrollController.dispose();
     if (widget.controller == null) {
